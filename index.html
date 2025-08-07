@@ -1,68 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Montamos Seu Site</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: #fff8f0;
-        color: #333;
-      }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Montamos Seu Site - Tudo em 1</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin:0; padding:0;
+    background: #fff8f0;
+    color: #333;
+  }
+  header {
+    background-color: #ff6f00;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  section {
+    padding: 2rem;
+  }
+  .produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+  }
+  .item {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 1rem;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
 
-      header {
-        background-color: #ff6f00;
-        color: white;
-        text-align: center;
-        padding: 2rem 1rem;
-      }
+  /* Páginas */
+  #home, #teste {
+    display: none;
+    min-height: 100vh;
+    flex-direction: column;
+  }
 
-      section {
-        padding: 2rem;
-      }
+  /* Mostrar página home por padrão */
+  body:not(:target) #home,
+  body:target:not(#teste) #home {
+    display: flex;
+  }
 
-      .produtos {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: center;
-      }
+  /* Mostrar página teste se #teste no hash */
+  #teste:target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #ff6f00;
+    flex-direction: column;
+  }
 
-      .item {
-        background: white;
-        border: 1px solid #ddd;
-        border-radius: 16px;
-        padding: 1rem;
-        width: 250px;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-        cursor: pointer;
-      }
+  /* Botão voltar */
+  .voltar {
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #ff6f00;
+    font-weight: bold;
+    border: 2px solid #ff6f00;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .voltar:hover {
+    background-color: #ff6f00;
+    color: white;
+  }
+</style>
+</head>
+<body>
 
-      .item:hover {
-        transform: scale(1.03);
-        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      }
-
-      footer {
-        background-color: #eee;
-        text-align: center;
-        padding: 1rem;
-        margin-top: 2rem;
-      }
-
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-    </style>
-  </head>
-  <body>
-
+  <div id="home">
     <header>
       <h1>Montamos Seu Site</h1>
       <p>Personalizado • Expanda seu negócio • Funcional</p>
@@ -71,19 +99,19 @@
     <section>
       <h2 style="text-align:center;">Nossos Diferenciais</h2>
       <div class="produtos">
-        <a href="teste.html" class="item">
+        <a href="#teste" class="item">
           <h3>Valores e Tamanhos</h3>
           <p>Oferecemos opções variadas para todos os bolsos e necessidades.</p>
         </a>
-        <a href="teste.html" class="item">
+        <a href="#teste" class="item">
           <h3>Fotos</h3>
           <p>Adicione imagens dos seus produtos ou serviços com qualidade.</p>
         </a>
-        <a href="teste.html" class="item">
+        <a href="#teste" class="item">
           <h3>Design Responsivo</h3>
           <p>Funciona bem em celular, tablet e computador.</p>
         </a>
-        <a href="teste.html" class="item">
+        <a href="#teste" class="item">
           <h3>Identidade Digital</h3>
           <p>Links personalizados e visual profissional.</p>
         </a>
@@ -100,6 +128,12 @@
     <footer>
       <p>&copy; 2025 Montamos Seu Site. Todos os direitos reservados.</p>
     </footer>
+  </div>
 
-  </body>
+  <div id="teste">
+    <p>Teste</p>
+    <a href="#home" class="voltar">Voltar para a página principal</a>
+  </div>
+
+</body>
 </html>
